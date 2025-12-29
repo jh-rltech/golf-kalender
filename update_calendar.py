@@ -104,6 +104,79 @@ FIXED_TOURNAMENTS = [
         "description": "RYDER CUP - USA er værter på Hazeltine",
         "is_major": True
     },
+    # DP World Tour 2026
+    {
+        "uid": "dubai-desert-classic-2026",
+        "name": "Hero Dubai Desert Classic",
+        "start": "2026-01-22",
+        "end": "2026-01-25",
+        "venue": "Emirates Golf Club",
+        "location": "Dubai, UAE",
+        "channel": "Viaplay / V Sport Golf",
+        "times": "Torsdag-Søndag: ca. 08:00-15:00",
+        "description": "DP WORLD TOUR - Rolex Series event",
+        "is_major": False
+    },
+    {
+        "uid": "irish-open-2026",
+        "name": "Amgen Irish Open",
+        "start": "2026-07-02",
+        "end": "2026-07-05",
+        "venue": "Trump International Golf Links",
+        "location": "Doonbeg, County Clare, Irland",
+        "channel": "Viaplay / V Sport Golf",
+        "times": "Torsdag-Søndag: ca. 14:00-20:00",
+        "description": "DP WORLD TOUR - Irish Open i Doonbeg",
+        "is_major": False
+    },
+    {
+        "uid": "scottish-open-2026",
+        "name": "Genesis Scottish Open",
+        "start": "2026-07-09",
+        "end": "2026-07-12",
+        "venue": "The Renaissance Club",
+        "location": "North Berwick, Skotland",
+        "channel": "Viaplay / V Sport Golf",
+        "times": "Torsdag-Søndag: ca. 12:00-20:00",
+        "description": "DP WORLD TOUR - Rolex Series - Ugen før The Open!",
+        "is_major": False
+    },
+    {
+        "uid": "bmw-pga-2026",
+        "name": "BMW PGA Championship",
+        "start": "2026-09-17",
+        "end": "2026-09-20",
+        "venue": "Wentworth Club",
+        "location": "Virginia Water, Surrey, England",
+        "channel": "Viaplay / V Sport Golf",
+        "times": "Torsdag-Søndag: ca. 12:00-20:00",
+        "description": "DP WORLD TOUR - Flagship event på Wentworth",
+        "is_major": False
+    },
+    {
+        "uid": "dunhill-links-2026",
+        "name": "Alfred Dunhill Links Championship",
+        "start": "2026-10-01",
+        "end": "2026-10-04",
+        "venue": "St Andrews, Carnoustie & Kingsbarns",
+        "location": "Skotland",
+        "channel": "Viaplay / V Sport Golf",
+        "times": "Torsdag-Søndag: ca. 12:00-19:00",
+        "description": "DP WORLD TOUR - Spilles på 3 legendariske baner",
+        "is_major": False
+    },
+    {
+        "uid": "dp-world-championship-2026",
+        "name": "DP World Tour Championship",
+        "start": "2026-11-12",
+        "end": "2026-11-15",
+        "venue": "Jumeirah Golf Estates",
+        "location": "Dubai, UAE",
+        "channel": "Viaplay / V Sport Golf",
+        "times": "Torsdag-Søndag: ca. 08:00-15:00",
+        "description": "DP WORLD TOUR - Sæsonfinale! Race to Dubai afgøres",
+        "is_major": False
+    },
 ]
 
 # DP World Tour events vi vil tracke (Rolex Series + store events)
@@ -163,7 +236,7 @@ def fetch_dp_world_tour_schedule():
 
 
 def create_ics_event(tournament):
-    """Opretter en ICS event string for en turnering"""
+    """Opretter en ICS event string for en turnering med 3 påmindelser"""
     
     uid = tournament['uid']
     name = tournament['name']
@@ -184,6 +257,9 @@ def create_ics_event(tournament):
     # Escape special characters for ICS
     desc_escaped = f"{description}\\n\\n📺 {channel}\\n🕐 {times}\\n📍 {venue}\\n🌍 {location}"
     
+    # Kort navn til påmindelser
+    short_name = name.replace(" - 100 års jubilæum!", "")
+    
     event = f"""BEGIN:VEVENT
 UID:{uid}@golf-kalender
 DTSTART:{start}
@@ -192,9 +268,19 @@ SUMMARY:{emoji} {name}
 DESCRIPTION:{desc_escaped}
 LOCATION:{venue}, {location}
 BEGIN:VALARM
+TRIGGER:-P30D
+ACTION:DISPLAY
+DESCRIPTION:Om 1 måned: {short_name} på Viaplay!
+END:VALARM
+BEGIN:VALARM
+TRIGGER:-P7D
+ACTION:DISPLAY
+DESCRIPTION:Om 1 uge: {short_name} på Viaplay!
+END:VALARM
+BEGIN:VALARM
 TRIGGER:-P1D
 ACTION:DISPLAY
-DESCRIPTION:I morgen: {name} på Viaplay!
+DESCRIPTION:I MORGEN: {short_name} på Viaplay!
 END:VALARM
 END:VEVENT"""
     
@@ -211,16 +297,15 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:⛳ Golf TV Danmark
 X-WR-CALDESC:Golf turneringer på dansk TV - PGA Championship, US Open, DP World Tour, Ryder Cup
-X-WR-TIMEZONE:Europe/Copenhagen
-"""
+X-WR-TIMEZONE:Europe/Copenhagen"""
     
     events = []
     for t in tournaments:
         events.append(create_ics_event(t))
     
-    footer = "\nEND:VCALENDAR"
+    footer = "\n\nEND:VCALENDAR"
     
-    return header + "\n" + "\n\n".join(events) + footer
+    return header + "\n\n" + "\n\n".join(events) + footer
 
 
 def main():
@@ -229,7 +314,7 @@ def main():
     
     # Start med de faste turneringer
     all_tournaments = FIXED_TOURNAMENTS.copy()
-    print(f"✅ {len(FIXED_TOURNAMENTS)} faste turneringer (majors + Ryder Cup)")
+    print(f"✅ {len(FIXED_TOURNAMENTS)} faste turneringer (majors + Ryder Cup + DP World Tour)")
     
     # Prøv at hente DP World Tour events
     dp_events = fetch_dp_world_tour_schedule()
@@ -245,6 +330,7 @@ def main():
     all_tournaments = [t for t in all_tournaments if t['end'] >= cutoff]
     
     print(f"📅 Total: {len(all_tournaments)} turneringer i kalenderen")
+    print(f"🔔 Hver turnering har 3 påmindelser: 1 måned, 1 uge, 1 dag før")
     
     # Generer kalenderfil
     ics_content = generate_calendar(all_tournaments)
