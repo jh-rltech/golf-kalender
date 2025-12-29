@@ -1,0 +1,164 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Golf Notifier//DA
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:⛳ Golf TV Danmark
+X-WR-CALDESC:Golf turneringer på dansk TV - PGA Championship, US Open, DP World Tour, Ryder Cup
+X-WR-TIMEZONE:Europe/Copenhagen
+
+BEGIN:VEVENT
+UID:masters-2026@golf-kalender
+DTSTART:20260409
+DTEND:20260413
+SUMMARY:⛳🏆 The Masters 2026
+DESCRIPTION:MAJOR - Første major i 2026\n\n📺 Viaplay / V Sport Golf\n🕐 Torsdag-Søndag: ca. 19:00-02:00\n📍 Augusta National Golf Club\n🌍 Augusta, Georgia, USA
+LOCATION:Augusta National Golf Club, Augusta, Georgia, USA
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:I morgen: The Masters på Viaplay!
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:pga-championship-2026@golf-kalender
+DTSTART:20260514
+DTEND:20260518
+SUMMARY:⛳🏆 PGA Championship 2026
+DESCRIPTION:MAJOR - 108. udgave af PGA Championship\n\n📺 Viaplay / V Sport Golf\n🕐 Torsdag-Søndag: ca. 18:00-02:00\n📍 Aronimink Golf Club\n🌍 Newtown Square, Pennsylvania, USA
+LOCATION:Aronimink Golf Club, Newtown Square, Pennsylvania, USA
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:I morgen: PGA Championship på Viaplay!
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:us-open-2026@golf-kalender
+DTSTART:20260618
+DTEND:20260622
+SUMMARY:⛳🏆 US Open 2026
+DESCRIPTION:MAJOR - 126. US Open på legendariske Shinnecock Hills\n\n📺 Viaplay / V Sport Golf\n🕐 Torsdag-Søndag: ca. 17:00-02:00\n📍 Shinnecock Hills Golf Club\n🌍 Southampton, New York, USA
+LOCATION:Shinnecock Hills Golf Club, Southampton, New York, USA
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:I morgen: US Open på Viaplay!
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:the-open-2026@golf-kalender
+DTSTART:20260716
+DTEND:20260720
+SUMMARY:⛳🏆 The Open Championship 2026
+DESCRIPTION:MAJOR - The Open på Royal Birkdale\n\n📺 Viaplay / V Sport Golf\n🕐 Torsdag-Søndag: ca. 10:00-21:00\n📍 Royal Birkdale Golf Club\n🌍 Southport, England
+LOCATION:Royal Birkdale Golf Club, Southport, England
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:I morgen: The Open på Viaplay!
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:ryder-cup-2027@golf-kalender
+DTSTART:20270917
+DTEND:20270920
+SUMMARY:⛳🏆 Ryder Cup 2027 - 100 års jubilæum!
+DESCRIPTION:RYDER CUP - 100 års jubilæum! Europa vs USA på Adare Manor\n\n📺 Viaplay / V Sport Golf / TV3 Sport\n🕐 Fredag-Søndag: ca. 13:00-22:00\n📍 Adare Manor\n🌍 County Limerick, Irland
+LOCATION:Adare Manor, County Limerick, Irland
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:I morgen: Ryder Cup på Viaplay!
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:dubai-desert-classic-2026@golf-kalender
+DTSTART:20260122
+DTEND:20260126
+SUMMARY:⛳ Hero Dubai Desert Classic
+DESCRIPTION:DP WORLD TOUR - Rolex Series event\n\n📺 Viaplay / V Sport Golf\n🕐 Torsdag-Søndag: ca. 08:00-15:00\n📍 Emirates Golf Club\n🌍 Dubai, UAE
+LOCATION:Emirates Golf Club, Dubai, UAE
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:I morgen: Dubai Desert Classic på Viaplay!
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:irish-open-2026@golf-kalender
+DTSTART:20260702
+DTEND:20260706
+SUMMARY:⛳ Amgen Irish Open
+DESCRIPTION:DP WORLD TOUR - Irish Open i Doonbeg\n\n📺 Viaplay / V Sport Golf\n🕐 Torsdag-Søndag: ca. 14:00-20:00\n📍 Trump International Golf Links\n🌍 Doonbeg, County Clare, Irland
+LOCATION:Trump International Golf Links, Doonbeg, Irland
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:I morgen: Irish Open på Viaplay!
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:scottish-open-2026@golf-kalender
+DTSTART:20260709
+DTEND:20260713
+SUMMARY:⛳ Genesis Scottish Open
+DESCRIPTION:DP WORLD TOUR - Rolex Series - Ugen før The Open!\n\n📺 Viaplay / V Sport Golf\n🕐 Torsdag-Søndag: ca. 12:00-20:00\n📍 The Renaissance Club\n🌍 North Berwick, Skotland
+LOCATION:The Renaissance Club, North Berwick, Skotland
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:I morgen: Scottish Open på Viaplay!
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:bmw-pga-2026@golf-kalender
+DTSTART:20260917
+DTEND:20260921
+SUMMARY:⛳ BMW PGA Championship
+DESCRIPTION:DP WORLD TOUR - Flagship event på Wentworth\n\n📺 Viaplay / V Sport Golf\n🕐 Torsdag-Søndag: ca. 12:00-20:00\n📍 Wentworth Club\n🌍 Virginia Water, Surrey, England
+LOCATION:Wentworth Club, Virginia Water, England
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:I morgen: BMW PGA Championship på Viaplay!
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:dunhill-links-2026@golf-kalender
+DTSTART:20261001
+DTEND:20261005
+SUMMARY:⛳ Alfred Dunhill Links Championship
+DESCRIPTION:DP WORLD TOUR - Spilles på 3 legendariske baner\n\n📺 Viaplay / V Sport Golf\n🕐 Torsdag-Søndag: ca. 12:00-19:00\n📍 St Andrews, Carnoustie & Kingsbarns\n🌍 Skotland
+LOCATION:St Andrews, Carnoustie & Kingsbarns, Skotland
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:I morgen: Dunhill Links på Viaplay!
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:dp-world-championship-2026@golf-kalender
+DTSTART:20261112
+DTEND:20261116
+SUMMARY:⛳ DP World Tour Championship
+DESCRIPTION:DP WORLD TOUR - Sæsonfinale! Race to Dubai afgøres\n\n📺 Viaplay / V Sport Golf\n🕐 Torsdag-Søndag: ca. 08:00-15:00\n📍 Jumeirah Golf Estates\n🌍 Dubai, UAE
+LOCATION:Jumeirah Golf Estates, Dubai, UAE
+BEGIN:VALARM
+TRIGGER:-P1D
+ACTION:DISPLAY
+DESCRIPTION:I morgen: DP World Tour Championship på Viaplay!
+END:VALARM
+END:VEVENT
+
+END:VCALENDAR

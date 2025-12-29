@@ -1,0 +1,36 @@
+name: Update Golf Calendar
+
+on:
+  # Kører automatisk hver søndag kl. 10:00 dansk tid (09:00 UTC)
+  schedule:
+    - cron: '0 9 * * 0'
+  
+  # Kan også køres manuelt fra GitHub
+  workflow_dispatch:
+
+jobs:
+  update-calendar:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4
+      
+      - name: Run calendar update
+        run: python update_calendar.py
+      
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add golf.ics
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🏌️ Opdateret golf kalender $(date +'%Y-%m-%d')" && git push)
